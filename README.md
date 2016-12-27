@@ -2,7 +2,8 @@
 
 An example site using [Jekyll][Jekyll] with
 [Minibundle][JekyllMinibundle] plugin to fingerprint CSS and JavaScript
-assets.
+assets. It's deployed to
+[GitHub pages][JekyllMinibundleExampleDeployment].
 
 [Sass][Sass] compiles stylesheets written in SCSS syntax into a single
 CSS output file. Minibundle includes the output file with `ministamp`
@@ -68,6 +69,7 @@ bundle exec rake -T
 ```
 
 [Bundler]: http://bundler.io/
+[JekyllMinibundleExampleDeployment]: http://tkareine.org/jekyll-minibundle-example/
 [JekyllMinibundle]: https://github.com/tkareine/jekyll-minibundle
 [Jekyll]: https://jekyllrb.com/
 [NodeJs]: https://nodejs.org/en/
