@@ -60,7 +60,8 @@ Alternatively, to launch Jekyll with Minibundle in development mode:
 bundle exec rake jekyll:dev
 ```
 
-You can view the compiled site at http://localhost:8080/ .
+You can view the compiled site at
+[http://localhost:8080/jekyll-minibundle-example/](http://localhost:8080/jekyll-minibundle-example/).
 
 To see all commands available:
 
