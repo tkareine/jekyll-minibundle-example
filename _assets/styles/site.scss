@@ -1,0 +1,7 @@
+@import "reset";
+@import "vars";
+
+.note {
+  background-color: $note-bg-color;
+  padding: $note-vmargin $note-hmargin;
+}

@@ -1,0 +1,11 @@
+{
+  "name": "jekyll-minibundle-example",
+  "version": "0.0.0",
+  "private": true,
+  "dependencies": {
+    "uglify-js": "^2.7.5"
+  },
+  "engines": {
+    "node": ">=5"
+  }
+}
