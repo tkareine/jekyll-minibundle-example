@@ -1,5 +1,6 @@
 # Jekyll
-baseurl: /
+url: 'http://tkareine.org/jekyll-minibundle-example/'
+baseurl: /jekyll-minibundle-example
 source: .
 destination: _site
 exclude:
