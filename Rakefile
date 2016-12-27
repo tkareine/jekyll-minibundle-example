@@ -57,6 +57,19 @@ task :site => [:'uglifyjs:verify', :clean, :'sass:compile'] do
   sh %{jekyll build}
 end
 
+desc 'Compile the site and deploy it to production'
+task :deploy do
+  sh %{git checkout master}
+  sh %{git checkout -B tmp-gh-pages}
+  Rake::Task['site'].invoke
+  sh %{git add -f _site}
+  sh %{git commit -m 'Generated site'}
+  sh %{git subtree split --prefix _site -b gh-pages}
+  sh %{git push -f origin gh-pages}
+  sh %{git branch -D gh-pages}
+  sh %{git checkout master}
+end
+
 CLEAN.include '_site'
 
 task :default => :site
