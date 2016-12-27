@@ -5,6 +5,7 @@ destination: _site
 exclude:
   - Gemfile
   - Gemfile.lock
+  - README.md
   - Rakefile
   - node_modules
   - npm-shrinkwrap.json
