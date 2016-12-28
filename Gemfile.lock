@@ -43,10 +43,10 @@ PLATFORMS
   ruby
 
 DEPENDENCIES
-  jekyll
-  jekyll-minibundle
-  rake
-  sass
+  jekyll (~> 3.0)
+  jekyll-minibundle (~> 2.1)
+  rake (~> 12.0)
+  sass (~> 3.4)
 
 BUNDLED WITH
-   1.13.6
+   1.13.7
