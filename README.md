@@ -71,10 +71,11 @@ bundle exec rake -T
 
 ## License
 
-![Creative Commons CC0 license](https://licensebuttons.net/p/zero/1.0/88x15.png)
-This work is dedicated into public domain with [Creative Commons CC0](https://creativecommons.org/publicdomain/zero/1.0/).
+[![CC0](https://licensebuttons.net/p/zero/1.0/80x15.png)][CC0] This work
+is dedicated into public domain.
 
 [Bundler]: http://bundler.io/
+[CC0]: https://creativecommons.org/publicdomain/zero/1.0/
 [JekyllMinibundleExampleDeployment]: http://tkareine.org/jekyll-minibundle-example/
 [JekyllMinibundle]: https://github.com/tkareine/jekyll-minibundle
 [Jekyll]: https://jekyllrb.com/
