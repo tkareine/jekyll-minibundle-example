@@ -9,14 +9,16 @@ assets. It's deployed to
 CSS output file. Minibundle includes the output file with `ministamp`
 Liquid tag into the generated site. See `_includes/index/head.html`.
 This demonstrates how to include the output of an external tool handling
-asset compiling, bundling and minifying into Jekyll.
+asset compiling, bundling and minifying into Jekyll. The same mechanism
+works with JavaScript compilation tools, such as
+[Browserify][Browserify] and [webpack][webpack], too.
 
 The JavaScript sources in this example demonstrate how to use
 Minibundle's `minibundle` Liquid block to feed JavaScript source files
 to [UglifyJS2][UglifyJS2] via STDIN, read the minified output from
 STDOUT, and include the output in the generated site. See
-`_includes/scripts/body.html`. The bundling features of Minibundle are
-really that simple, and you probably won't use them much.
+`_includes/scripts/body.html`. The bundling features of `minibundle` are
+really that lightweight, but sometimes that's just enough.
 
 ## Setup environment
 
@@ -75,6 +77,7 @@ bundle exec rake -T
 is dedicated into public domain.
 
 [Bundler]: http://bundler.io/
+[Browserify]: http://browserify.org/
 [CC0]: https://creativecommons.org/publicdomain/zero/1.0/
 [JekyllMinibundleExampleDeployment]: http://tkareine.org/jekyll-minibundle-example/
 [JekyllMinibundle]: https://github.com/tkareine/jekyll-minibundle
@@ -83,3 +86,4 @@ is dedicated into public domain.
 [Ruby]: https://www.ruby-lang.org/en/
 [Sass]: http://sass-lang.com/
 [UglifyJS2]: https://github.com/mishoo/UglifyJS2
+[webpack]: https://webpack.github.io/
