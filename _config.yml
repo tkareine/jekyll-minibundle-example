@@ -4,6 +4,7 @@ baseurl: /jekyll-minibundle-example
 source: .
 destination: _site
 exclude:
+  - .sass-cache
   - Gemfile
   - Gemfile.lock
   - README.md
