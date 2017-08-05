@@ -49,13 +49,13 @@ namespace :jekyll do
   end
 
   desc 'Compile and serve the site locally for production'
-  task prod: [:'uglifyjs:verify', :clean] do
+  task prod: %i{uglifyjs:verify clean} do
     sh %{jekyll serve --watch --trace}
   end
 end
 
 desc 'Compile the site for production'
-task site: [:'uglifyjs:verify', :clean, :'sass:compile'] do
+task site: %i{uglifyjs:verify clean sass:compile} do
   sh %{jekyll build}
 end
 
