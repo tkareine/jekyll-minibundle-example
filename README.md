@@ -26,9 +26,9 @@ The compile the site, you'll need [Ruby][Ruby] and [Node.js][NodeJs]
 programming environments. For Ruby, you'll need [Bundler][Bundler] as
 well.
 
-0. `cd jekyll-minibundle-example`
-0. `bundle install`
-0. `npm install`
+1. `cd jekyll-minibundle-example`
+2. `bundle install`
+3. `npm install`
 
 ## Run the example
 
