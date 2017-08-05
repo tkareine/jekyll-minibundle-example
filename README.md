@@ -15,7 +15,7 @@ works with JavaScript compilation tools, such as
 
 The JavaScript sources in this example demonstrate how to use
 Minibundle's `minibundle` Liquid block to feed JavaScript source files
-to [UglifyJS2][UglifyJS2] via STDIN, read the minified output from
+to [UglifyJS2][UglifyJS] via STDIN, read the minified output from
 STDOUT, and include the output in the generated site. See
 `_includes/scripts/body.html`. The bundling features of `minibundle` are
 really that lightweight, but sometimes that's just enough.
