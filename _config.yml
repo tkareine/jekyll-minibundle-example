@@ -10,12 +10,13 @@ exclude:
   - README.md
   - Rakefile
   - node_modules
-  - npm-shrinkwrap.json
+  - package-lock.json
   - package.json
 port: 8080
-gems: ['jekyll/minibundle']
+plugins:
+  - jekyll/minibundle
 
 # Minibundle
 minibundle:
   minifier_commands:
-    js: node_modules/.bin/uglifyjs -
+    js: node_modules/.bin/uglifyjs
