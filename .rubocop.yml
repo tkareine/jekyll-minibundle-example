@@ -3,9 +3,7 @@
 AllCops:
   DisplayCopNames: true
   DisplayStyleGuide: true
-  TargetRubyVersion: 2.0
-#Layout/ExtraSpacing:
-#  Enabled: false  # does not work with trailing comments
+  TargetRubyVersion: 2.1
 Layout/SpaceInsideHashLiteralBraces:
   EnforcedStyle: no_space
 Metrics/AbcSize:
