@@ -1,5 +1,5 @@
 # Jekyll
-url: 'http://tkareine.org/jekyll-minibundle-example/'
+url: 'https://tkareine.github.io/jekyll-minibundle-example/'
 baseurl: /jekyll-minibundle-example
 source: .
 destination: _site

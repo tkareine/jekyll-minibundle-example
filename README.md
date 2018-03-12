@@ -79,7 +79,7 @@ is dedicated into public domain.
 [Bundler]: http://bundler.io/
 [Browserify]: http://browserify.org/
 [CC0]: https://creativecommons.org/publicdomain/zero/1.0/
-[JekyllMinibundleExampleDeployment]: http://tkareine.org/jekyll-minibundle-example/
+[JekyllMinibundleExampleDeployment]: https://tkareine.github.io/game_of_life/example/
 [JekyllMinibundle]: https://github.com/tkareine/jekyll-minibundle
 [Jekyll]: https://jekyllrb.com/
 [NodeJs]: https://nodejs.org/en/
