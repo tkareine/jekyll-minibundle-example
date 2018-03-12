@@ -53,13 +53,13 @@ Liquid block appear as is.
 To launch Jekyll with Minibundle without development mode:
 
 ``` bash
-bundle exec rake jekyll:prod
+bundle exec rake jekyll:watch:prod
 ```
 
 Alternatively, to launch Jekyll with Minibundle in development mode:
 
 ``` bash
-bundle exec rake jekyll:dev
+bundle exec rake jekyll:watch:dev
 ```
 
 You can view the compiled site at
