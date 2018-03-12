@@ -3,7 +3,7 @@
   "version": "0.0.0",
   "private": true,
   "dependencies": {
-    "uglify-js": "^3.3.11"
+    "uglify-js": "^3.3.14"
   },
   "engines": {
     "node": ">= 8"
