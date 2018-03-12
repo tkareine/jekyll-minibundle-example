@@ -30,6 +30,7 @@ namespace :sass do
     sh %{sass #{SASS_CONFIG.fetch(:common_options)} --watch #{SASS_CONFIG.fetch(:input)}:#{SASS_CONFIG.fetch(:output)}}
   end
 
+  CLEAN.include SASS_CONFIG.fetch(:output)
   CLOBBER.include '.sass-cache'
 end
 
@@ -43,21 +44,28 @@ namespace :uglifyjs do
 end
 
 namespace :jekyll do
-  desc 'Compile and serve the site locally for development'
-  task dev: :clean do
-    sh DEV_ENV, %{jekyll serve --watch --trace}
+  desc 'Compile the site (prod env)'
+  task :compile do
+    sh %{jekyll build}
   end
 
-  desc 'Compile and serve the site locally for production'
-  task prod: %i{uglifyjs:verify clean} do
-    sh %{jekyll serve --watch --trace}
+  namespace :watch do
+    desc 'Compile, watch, and serve the site locally (dev env)'
+    task :dev do
+      sh DEV_ENV, %{jekyll serve --watch --trace}
+    end
+
+    desc 'Compile, watch, and serve the site locally (prod env)'
+    task :prod do
+      sh %{jekyll serve --watch --trace}
+    end
   end
+
+  CLEAN.include '_site'
 end
 
-desc 'Compile the site for production'
-task site: %i{uglifyjs:verify clean sass:compile} do
-  sh %{jekyll build}
-end
+desc 'Compile the site (prod env)'
+task site: %i{clean uglifyjs:verify sass:compile jekyll:compile}
 
 desc 'Compile the site and deploy it to production'
 task :deploy do
@@ -71,8 +79,6 @@ task :deploy do
   sh %{git branch -D gh-pages}
   sh %{git checkout master}
 end
-
-CLEAN.include '_site'
 
 RuboCop::RakeTask.new
 
