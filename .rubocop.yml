@@ -3,7 +3,10 @@
 AllCops:
   DisplayCopNames: true
   DisplayStyleGuide: true
-  TargetRubyVersion: 2.1
+  TargetRubyVersion: 2.3
+Layout/HashAlignment:
+  EnforcedColonStyle: table
+  EnforcedHashRocketStyle: table
 Layout/SpaceInsideHashLiteralBraces:
   EnforcedStyle: no_space
 Metrics/AbcSize:
@@ -18,8 +21,6 @@ Metrics/MethodLength:
   Max: 50
 Metrics/ModuleLength:
   Max: 200
-Performance/RedundantBlockCall:
-  Enabled: false  # prefer named block arguments for documentation
 Style/ClassAndModuleChildren:
   Enabled: false  # we use both compact and nested style, preferring compact
 Style/ClassVars:
