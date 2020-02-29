@@ -64,6 +64,7 @@ namespace :jekyll do
   end
 
   CLEAN.include '_site'
+  CLOBBER.include '.jekyll-cache'
 end
 
 desc 'Compile the site (prod env)'
