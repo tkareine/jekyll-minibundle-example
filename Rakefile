@@ -19,7 +19,7 @@ DEV_ENV = {
 
 directory '_tmp'
 
-CLOBBER.include '_tmp'
+CLEAN.include '_tmp'
 
 namespace :sass do
   desc 'Compile assets with Sass'
@@ -63,8 +63,7 @@ namespace :jekyll do
     end
   end
 
-  CLEAN.include '_site'
-  CLOBBER.include '.jekyll-cache'
+  CLOBBER.include '_site', '.jekyll-cache'
 end
 
 desc 'Compile the site (prod env)'
