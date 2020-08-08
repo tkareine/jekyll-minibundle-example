@@ -39,7 +39,7 @@ end
 namespace :uglifyjs do
   desc 'Ensure UglifyJS is installed'
   task :verify do
-    File.executable?(UGLIFYJS_CONFIG.fetch(:bin)) || (raise "UglifyJS executable not found: #{UGLIFYJS_CONFIG.fetch(:bin)}\nTry `npm install`.")
+    File.executable?(UGLIFYJS_CONFIG.fetch(:bin)) || (raise "UglifyJS executable not found: #{UGLIFYJS_CONFIG.fetch(:bin)}\nTry `npm ci`.")
   end
 
   CLOBBER.include 'node_modules'

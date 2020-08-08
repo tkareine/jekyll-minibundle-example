@@ -1,17 +1,16 @@
 # Jekyll Minibundle example site
 
-An example site using [Jekyll][Jekyll] with
-[Minibundle][JekyllMinibundle] plugin to fingerprint CSS and JavaScript
-assets. It's deployed to
+An example site using [Jekyll] with [Minibundle][JekyllMinibundle]
+plugin to fingerprint CSS and JavaScript assets. It's deployed to
 [GitHub pages][JekyllMinibundleExampleDeployment].
 
-[Sass][Sass] compiles stylesheets written in SCSS syntax into a single
-CSS output file. Minibundle includes the output file with `ministamp`
-Liquid tag into the generated site. See `_includes/index/head.html`.
-This demonstrates how to include the output of an external tool handling
+[Sass] compiles stylesheets written in SCSS syntax into a single CSS
+output file. Minibundle includes the output file with `ministamp` Liquid
+tag into the generated site. See `_includes/index/head.html`.  This
+demonstrates how to include the output of an external tool handling
 asset compiling, bundling and minifying into Jekyll. The same mechanism
-works with JavaScript compilation tools, such as
-[Browserify][Browserify] and [webpack][webpack], too.
+works with JavaScript compilation tools, such as [Browserify] and
+[webpack], too.
 
 The JavaScript sources in this example demonstrate how to use
 Minibundle's `minibundle` Liquid block to feed JavaScript source files
@@ -22,13 +21,12 @@ really that lightweight, but sometimes that's just enough.
 
 ## Setup environment
 
-The compile the site, you'll need [Ruby][Ruby] and [Node.js][NodeJs]
-programming environments. For Ruby, you'll need [Bundler][Bundler] as
-well.
+The compile the site, you'll need [Ruby] and [Node.js][NodeJs]
+programming environments. For Ruby, you'll need [Bundler] as well.
 
 1. `cd jekyll-minibundle-example`
 2. `bundle install`
-3. `npm install`
+3. `npm ci`
 
 ## Run the example
 
