@@ -1,37 +1,36 @@
-# Default config: https://github.com/bbatsov/rubocop/blob/master/config/default.yml
+# Default config: https://github.com/rubocop-hq/rubocop/blob/master/config/default.yml
 
 AllCops:
   DisplayCopNames: true
   DisplayStyleGuide: true
-  TargetRubyVersion: 2.3
+  NewCops: enable
+  TargetRubyVersion: 2.4
+Layout/ExtraSpacing:
+  AllowBeforeTrailingComments: true
 Layout/HashAlignment:
   EnforcedColonStyle: table
   EnforcedHashRocketStyle: table
+Layout/LineLength:
+  Max: 200
 Layout/SpaceInsideHashLiteralBraces:
   EnforcedStyle: no_space
 Metrics/AbcSize:
   Max: 50
 Metrics/BlockLength:
   Max: 200
-Metrics/ClassLength:
-  Enabled: false  # test classes are big
-Metrics/LineLength:
-  Max: 200
 Metrics/MethodLength:
   Max: 50
 Metrics/ModuleLength:
   Max: 200
+Naming/MemoizedInstanceVariableName:
+  EnforcedStyleForLeadingUnderscores: required
 Style/ClassAndModuleChildren:
-  Enabled: false  # we use both compact and nested style, preferring compact
+  Enabled: false # we use both compact and nested style, preferring compact
 Style/ClassVars:
-  Enabled: false  # it's ok when knowing it's limitations, easy to access from class instance scope
-Style/CollectionMethods:
-  Enabled: true
-Style/Copyright:
-  Enabled: false  # we have copyright in the readme
+  Enabled: false # it's ok when knowing it's limitations, easy to access from class instance scope
 Style/Documentation:
-  Enabled: false  # we have documentation in the readme
+  Enabled: false # we have documentation in the readme
+Style/IfUnlessModifier:
+  Enabled: false # we like to use if/unless blocks for single-line expressions or statements that are long, avoiding making the line even longer with trailing if/unless modifier
 Style/NumericPredicate:
   EnforcedStyle: comparison
-Style/PercentLiteralDelimiters:
-  Enabled: false  # it's better to use `%w{}` syntax, because the braces are the same as in `%r{}`

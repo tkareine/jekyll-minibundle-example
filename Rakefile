@@ -6,9 +6,11 @@ require 'open3'
 
 def sh_capture2(cmd)
   stdout_str, status = Open3.capture2(cmd)
+
   if status.exitstatus != 0
     raise "sh_capture2 failed (#{status.exitstatus}): #{cmd}"
   end
+
   stdout_str
 end
 
@@ -33,12 +35,12 @@ CLEAN.include '_tmp'
 namespace :sass do
   desc 'Compile assets with Sass'
   task compile: :_tmp do
-    sh %{sass #{SASS_CONFIG.fetch(:common_options)} --style=compressed #{SASS_CONFIG.fetch(:input)} #{SASS_CONFIG.fetch(:output)}}
+    sh "sass #{SASS_CONFIG.fetch(:common_options)} --style=compressed #{SASS_CONFIG.fetch(:input)} #{SASS_CONFIG.fetch(:output)}"
   end
 
   desc 'Compile and watch assets with Sass, recompiling when necessary'
   task watch: :_tmp do
-    sh %{sass #{SASS_CONFIG.fetch(:common_options)} --watch #{SASS_CONFIG.fetch(:input)}:#{SASS_CONFIG.fetch(:output)}}
+    sh "sass #{SASS_CONFIG.fetch(:common_options)} --watch #{SASS_CONFIG.fetch(:input)}:#{SASS_CONFIG.fetch(:output)}"
   end
 
   CLEAN.include SASS_CONFIG.fetch(:output)
@@ -57,18 +59,18 @@ end
 namespace :jekyll do
   desc 'Compile the site (prod env)'
   task :compile do
-    sh %{jekyll build}
+    sh 'jekyll build'
   end
 
   namespace :watch do
     desc 'Compile, watch, and serve the site locally (dev env)'
     task :dev do
-      sh DEV_ENV, %{jekyll serve --watch --trace}
+      sh DEV_ENV, 'jekyll serve --watch --trace'
     end
 
     desc 'Compile, watch, and serve the site locally (prod env)'
     task :prod do
-      sh %{jekyll serve --watch --trace}
+      sh 'jekyll serve --watch --trace'
     end
   end
 
@@ -76,17 +78,17 @@ namespace :jekyll do
 end
 
 desc 'Compile the site (prod env)'
-task site: %i{clean uglifyjs:verify sass:compile jekyll:compile}
+task site: %i[clean uglifyjs:verify sass:compile jekyll:compile]
 
 desc 'Compile the site and deploy it to production'
 task :deploy do
   Rake::Task['site'].invoke
-  sh %{git add -f _site}
-  git_tree_id = sh_capture2(%{git write-tree --prefix=_site/}).lines(chomp: true).first
-  git_commit_id = sh_capture2(%{git commit-tree -m 'Generated site' '#{git_tree_id}'}).lines(chomp: true).first
-  sh %{git update-ref refs/heads/gh-pages '#{git_commit_id}'}
-  sh %{git reset}
-  sh %{git push -f origin gh-pages}
+  sh 'git add -f _site'
+  git_tree_id = sh_capture2('git write-tree --prefix=_site/').lines(chomp: true).first
+  git_commit_id = sh_capture2("git commit-tree -m 'Generated site' '#{git_tree_id}'").lines(chomp: true).first
+  sh "git update-ref refs/heads/gh-pages '#{git_commit_id}'"
+  sh 'git reset'
+  sh 'git push -f origin gh-pages'
 end
 
 RuboCop::RakeTask.new
