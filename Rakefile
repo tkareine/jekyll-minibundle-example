@@ -2,6 +2,15 @@
 
 require 'rake/clean'
 require 'rubocop/rake_task'
+require 'open3'
+
+def sh_capture2(cmd)
+  stdout_str, status = Open3.capture2(cmd)
+  if status.exitstatus != 0
+    raise "sh_capture2 failed (#{status.exitstatus}): #{cmd}"
+  end
+  stdout_str
+end
 
 UGLIFYJS_CONFIG = {
   bin: 'node_modules/.bin/uglifyjs'
@@ -71,15 +80,13 @@ task site: %i{clean uglifyjs:verify sass:compile jekyll:compile}
 
 desc 'Compile the site and deploy it to production'
 task :deploy do
-  sh %{git checkout master}
-  sh %{git checkout -B tmp-gh-pages}
   Rake::Task['site'].invoke
   sh %{git add -f _site}
-  sh %{git commit -m 'Generated site'}
-  sh %{git subtree split --prefix _site -b gh-pages}
+  git_tree_id = sh_capture2(%{git write-tree --prefix=_site/}).lines(chomp: true).first
+  git_commit_id = sh_capture2(%{git commit-tree -m 'Generated site' '#{git_tree_id}'}).lines(chomp: true).first
+  sh %{git update-ref refs/heads/gh-pages '#{git_commit_id}'}
+  sh %{git reset}
   sh %{git push -f origin gh-pages}
-  sh %{git branch -D gh-pages}
-  sh %{git checkout master}
 end
 
 RuboCop::RakeTask.new
