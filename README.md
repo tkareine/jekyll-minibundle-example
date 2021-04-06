@@ -1,23 +1,29 @@
 # Jekyll Minibundle example site
 
 An example site using [Jekyll] with [Minibundle][JekyllMinibundle]
-plugin to fingerprint CSS and JavaScript assets. It's deployed to
-[GitHub pages][JekyllMinibundleExampleDeployment].
+plugin to fingerprint CSS and JavaScript assets. It's deployed with
+[GitHub Pages][GitHubPages] at
+[https://tkareine.github.io/jekyll-minibundle-example/](https://tkareine.github.io/jekyll-minibundle-example/).
 
 [Sass] compiles stylesheets written in SCSS syntax into a single CSS
-output file. Minibundle includes the output file with `ministamp` Liquid
-tag into the generated site. See `_includes/index/head.html`.  This
+output file. Minibundle includes the output file of Sass with the
+`ministamp` Liquid tag into the generated site. The path of the output
+file includes the MD5 fingerprint of the file's contents. See
+[_includes/index/head.html](_includes/index/head.html). This
 demonstrates how to include the output of an external tool handling
 asset compiling, bundling and minifying into Jekyll. The same mechanism
 works with JavaScript compilation tools, such as [Browserify] and
-[webpack], too.
+[webpack], too. You can use the `ministamp` tag to fingerprint any type
+of file.
 
 The JavaScript sources in this example demonstrate how to use
 Minibundle's `minibundle` Liquid block to feed JavaScript source files
-to [UglifyJS][UglifyJS2] via STDIN, read the minified output from
-STDOUT, and include the output in the generated site. See
-`_includes/scripts/body.html`. The bundling features of `minibundle` are
-really that lightweight, but sometimes that's just enough.
+to [UglifyJS][UglifyJS2] via stdin, read the minified output from
+stdout, and include the output file in the generated site. The path of
+the output file includes the MD5 fingerprint of the file's contents. See
+[_includes/scripts/body.html](_includes/scripts/body.html). The bundling
+features of `minibundle` are really that lightweight, but sometimes
+that's just enough.
 
 ## Setup environment
 
@@ -63,7 +69,7 @@ bundle exec rake jekyll:watch:dev
 You can view the compiled site at
 [http://localhost:8080/jekyll-minibundle-example/](http://localhost:8080/jekyll-minibundle-example/).
 
-To see all commands available:
+To see all the commands available:
 
 ``` bash
 bundle exec rake -D
@@ -74,10 +80,10 @@ bundle exec rake -D
 [![CC0](https://licensebuttons.net/p/zero/1.0/80x15.png)][CC0] This work
 is dedicated into public domain.
 
-[Bundler]: http://bundler.io/
 [Browserify]: http://browserify.org/
+[Bundler]: http://bundler.io/
 [CC0]: https://creativecommons.org/publicdomain/zero/1.0/
-[JekyllMinibundleExampleDeployment]: https://tkareine.github.io/jekyll-minibundle-example/
+[GitHubPages]: https://docs.github.com/en/pages
 [JekyllMinibundle]: https://github.com/tkareine/jekyll-minibundle
 [Jekyll]: https://jekyllrb.com/
 [NodeJs]: https://nodejs.org/en/
