@@ -19,7 +19,7 @@ UGLIFYJS_CONFIG = {
 }.freeze
 
 SASS_CONFIG = {
-  common_options: '--scss --sourcemap=none',
+  common_options: '--no-source-map',
   input:          '_assets/styles/site.scss',
   output:         '_tmp/site.css'
 }.freeze
@@ -44,7 +44,6 @@ namespace :sass do
   end
 
   CLEAN.include SASS_CONFIG.fetch(:output)
-  CLOBBER.include '.sass-cache'
 end
 
 namespace :uglifyjs do

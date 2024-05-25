@@ -36,14 +36,14 @@ programming environments. For Ruby, you'll need [Bundler] as well.
 
 ## Run the example
 
-First, compile SCSS source files:
+First, compile Sass source files:
 
 ``` bash
 bundle exec rake sass:compile
 ```
 
 Alternatively, for more convenient workflow, run Sass in watch mode so
-that you'll see the changes in the site when changing SCSS files:
+that you'll see the changes in the site when changing `.scss` files:
 
 ``` bash
 bundle exec rake sass:watch
